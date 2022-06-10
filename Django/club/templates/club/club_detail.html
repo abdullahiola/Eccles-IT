@@ -1,0 +1,28 @@
+{%extends 'club/base.html' %} 
+{%load static%}
+{% block content %}
+
+  <div class="container">
+    <h1>{{club.name}}</h1>
+    <h3>{{club.name}} were established in {{club.year}}</h3>
+    {% if club.capacity and club.website %}
+      <h3>They play at {{club.ground}},which has a capacity of {{club.capacity}}</h3>
+      <h3>You can find out more at : <a href="{{club.website}}">{{club.website}}</a></h3>
+      {%else%}
+      <h3>They play at {{club.ground}}, capacity is unknown</h3>
+      <h3>This club has no website</h3>
+    {% endif %}
+    
+    
+    <p><a href="{%url 'club_list'%}">Club List</a></p>
+    
+    <div class="image">
+      <img src="{% static 'football.png' %}" alt="">
+      <img src="{% static 'football.png' %}" id="img2">
+    </div>
+    
+
+
+  </div>       
+  
+{% endblock content%}

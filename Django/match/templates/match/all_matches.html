@@ -1,0 +1,19 @@
+{%extends 'match/base.html' %} 
+{%block title%}All Matches{%endblock title%}
+
+{%block content%}
+  <div class="container">
+    <h1>All Football Matches</h1>
+    {% if all_matches %}
+      <ol>
+        {%for match in all_matches%}
+          <li>{{ match }}</li>
+        {%endfor%}
+      </ol>
+      {%else%}
+      <p>Sorry - no matches in the database</p>
+    {%endif%}
+  </div>
+  
+  
+{%endblock content%}

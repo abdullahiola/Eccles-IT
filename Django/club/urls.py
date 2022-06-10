@@ -1,11 +1,9 @@
-from django.conf.urls import patterns,url
-from club.views import club_list
+from . import views
 
-urlpatterns = patterns('',
-  url(
-    regex=r"^$",
-    view=club_list,
-    name='club_list'  
-  ),
-    
-)
+from django.contrib import admin
+from django.urls import path,include
+urlpatterns = [
+  path('',views.club_list,name='club_list'),
+  path('club/<str:pk>',views.club_detail,name="club_detail"),
+  path('cluborder',views.club_order,name='order')
+]
